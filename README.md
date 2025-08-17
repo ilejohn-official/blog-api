@@ -123,4 +123,4 @@ A test viewer user is automatically seeded:
 
 👨‍💻 Author
 
-Developed by [Opeyemi Ilesanmi](ojilesanmi7@gmail.com) ✨
+Developed by [Opeyemi Ilesanmi](mailto:ojilesanmi7@gmail.com?subject=Blog%20API%20Inquiry) ✨
