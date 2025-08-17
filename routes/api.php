@@ -1,7 +1,10 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\LikeController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('token')->group(function () {
+    Route::apiResource('blogs', BlogController::class);
+    Route::apiResource('blogs.posts', PostController::class);
+
+    Route::post('posts/{post}/like', [CommentController::class, 'like']);
+
+    Route::post('posts/{post}/comment', [LikeController::class, 'comment']);
 });
