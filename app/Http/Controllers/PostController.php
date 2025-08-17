@@ -53,6 +53,6 @@ class PostController extends Controller
     {
         $post->delete();
 
-        return response()->json(['message' => 'Post deleted successfully']);
+        return response()->json(['message' => 'Post deleted successfully'], JsonResponse::HTTP_NO_CONTENT);
     }
 }

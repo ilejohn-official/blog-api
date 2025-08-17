@@ -18,6 +18,9 @@ class Blog extends Model
      */
     protected $fillable = ['title', 'description', 'image'];
 
+    /**
+     * Get the posts for the blog.
+     */
     public function posts(): HasMany
     {
         return $this->hasMany(Post::class);
