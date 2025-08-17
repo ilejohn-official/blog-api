@@ -24,7 +24,7 @@ class BlogController extends Controller
     {
         $blog = Blog::create($request->validated());
 
-        return response()->json($blog, 201);
+        return response()->json($blog, JsonResponse::HTTP_CREATED);
     }
 
     /**
