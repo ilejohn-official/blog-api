@@ -19,7 +19,10 @@ use App\Http\Controllers\CommentController;
 
 Route::middleware('token')->group(function () {
     Route::apiResource('blogs', BlogController::class);
-    Route::apiResource('blogs.posts', PostController::class);
+
+    Route::scopeBindings()->group(function () {
+        Route::apiResource('blogs.posts', PostController::class);
+    });
 
     Route::post('posts/{post}/like', [CommentController::class, 'like']);
 
