@@ -26,9 +26,9 @@ class TokenMiddleware
             $token = $header;
         }
 
-        if (!$token || $token !== $expectedToken) {
+        if (! $token || $token !== $expectedToken) {
             return response()->json([
-                'message' => 'Unauthorized.'
+                'message' => 'Unauthorized.',
             ], Response::HTTP_UNAUTHORIZED);
         }
 

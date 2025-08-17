@@ -15,7 +15,10 @@ class LikeController extends Controller
     {
         $user = User::first();
         $like = $post->likes()->firstOrCreate(['user_id' => $user->id]);
+        $alreadyLiked = ! $like->wasRecentlyCreated;
 
-        return response()->json(['message' => 'Post liked successfully', 'like' => $like]);
+        $message = $alreadyLiked ? 'Post already liked' : 'Post liked successfully';
+
+        return response()->json(['message' => $message, 'data' => $like]);
     }
 }

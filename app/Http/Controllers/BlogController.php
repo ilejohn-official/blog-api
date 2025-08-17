@@ -32,7 +32,9 @@ class BlogController extends Controller
      */
     public function show(Blog $blog): JsonResponse
     {
-        return response()->json($blog->load('posts'));
+        $blog->load(['posts' => fn($query) => $query->paginate(10)]);
+
+        return response()->json($blog);
     }
 
     /**
