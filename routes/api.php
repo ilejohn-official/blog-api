@@ -24,7 +24,9 @@ Route::middleware('token')->group(function () {
         Route::apiResource('blogs.posts', PostController::class);
     });
 
-    Route::post('posts/{post}/like', [LikeController::class, 'like']);
+    Route::prefix('posts/{post}')->group(function () {
+        Route::post('like', [LikeController::class, 'like']);
 
-    Route::post('posts/{post}/comment', [CommentController::class, 'comment']);
+        Route::post('comment', [CommentController::class, 'comment']);
+    });
 });
